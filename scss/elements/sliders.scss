@@ -1,0 +1,75 @@
+// default variables
+@import "../vars.scss";
+
+#output-size {
+  @include clearfix();
+  
+  .batch-size {
+    
+    font-family: $fontFamilyHeader;
+    font-size: 60px;
+    text-align: center;
+    
+    
+    .number {
+      font-size: 120px;
+      font-weight: 700;
+      line-height: 0.5em;
+    } 
+    
+    .quarts {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 0.5em;
+      
+      .quart-value {
+        font-weight: 400;  
+      }
+    } 
+  }
+  
+  .batch-selector {
+    padding-top: 30px;
+    
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+#output-heat {
+  @include clearfix();
+  
+  .heat-headers {
+    @include clearfix();  
+  }
+  
+  h3.batch-heat {
+    width: 33%;
+    float: left;
+    clear: none;
+    
+    &.mild {
+      text-align: left;
+    }
+    
+    &.medium {
+      text-align: center;
+    }
+    
+    &.hot {
+      text-align: right;
+    }
+  }
+  .slider {
+    @include clearfix();
+  }
+}
+
+@media all and (min-width: $tablet) {
+
+}
+
+@media all and (min-width: $desktop) {
+
+}

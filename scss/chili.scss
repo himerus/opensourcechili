@@ -1,0 +1,276 @@
+// default variables
+@charset "UTF-8";
+@import "vars.scss";
+// styles for navigation bar
+@import "elements/navbar.scss";
+// styles for recipe table
+@import "elements/recipe.scss";
+// styles for sliders for batch size and heat
+@import "elements/sliders.scss";
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	position: relative;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $fontFamilyStandard;
+  background-color: $background;
+  color: $fontColorDefault;
+}
+
+#wrapper {
+  padding-top: 70px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fontFamilyHeader;
+  font-weight: 300; // light
+}
+
+h1 {
+  text-align: left;
+}
+
+h1, h2 {
+  font-weight: 700; // bold
+}
+
+h2.section-header {
+  font-size: 60px;
+  text-align: center;
+  line-height: 1em;
+  margin-top: 20px;
+}
+
+h3 {
+  font-weight: 400; // regular
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color1;
+  
+  &:hover,
+  &:focus {
+    color: $color5;
+  }  
+  
+  &:focus {
+    outline: 0;
+  }
+}
+
+section {
+  @include clearfix();
+}
+
+.site-section {
+  padding-top: 80px;
+}
+
+.sidebar {
+  padding: 0 20px;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  
+  li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;  
+  }
+}
+
+.inner {
+  position: relative;
+  max-width: $maxwidth;
+  margin: 0 auto;
+  @include clearfix();
+}
+
+#wrapper > header {
+  
+  .inner {
+    
+    margin-bottom: 2em;
+    padding: 2em;
+    background: rgba($color3, 1);
+    color: $color5;  
+    
+  }
+  
+  
+  section {
+    h2 {
+      margin-top: 0;
+      border-bottom: 2px solid $color4;
+    }
+  }
+}
+
+#wrapper > .instructions {
+  
+  .inner {  
+    
+    
+    ul {
+      margin: 0;
+      margin-bottom: 2em;
+      padding: 0;
+      
+      li {
+        font-weight: bold;
+        margin-bottom: 1em;
+        
+        em {
+          display: block;
+          font-size: 0.85em;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+
+
+#page-sharing {
+  
+  #fb-share {
+    display: inline-block;
+  }
+  
+  #twitter-share {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    
+    .hcount #count {
+      padding-left: 10px !important;
+      padding-left: 10px !important;
+    }
+  }
+}
+
+@media all and (min-width: $tablet) {
+  #wrapper {
+    padding: 40px;
+    padding-top: 70px;
+  }
+
+  
+  
+  #wrapper > header {
+    
+    .inner {
+      margin-top: 2em;
+      
+      @include shadow();
+      @include rounded();
+      
+      border: 5px solid rgba($color1, 0.25);  
+    }
+    
+    
+    section {
+      width: 47.25%;
+      float: left;
+      margin-right: 5%;
+      
+      &:first-child {
+        
+      }  
+            
+      &:nth-child(2) {
+        margin-right: 0;
+      }
+      
+      &:last-child {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+  }
+  
+  #ingredients {
+   
+  }
+  
+  #wrapper > .instructions {
+    
+    .inner {
+      
+    }
+  }
+}
+
+@media all and (min-width: $desktop) {
+  
+  #wrapper {
+    padding: 40px;
+    padding-top: 70px;
+  }
+    
+  #wrapper > header {
+    
+    .inner {
+      margin-top: 2em;
+      
+      @include shadow();
+      @include rounded();
+      
+      border: 5px solid rgba($color1, 0.25);  
+    }
+    
+    
+    section {
+      width: 30%;
+      float: left;
+      margin-right: 5%;
+      
+      &:first-child {
+        width: 30%;
+        margin-right: 5%;
+      }
+      
+      &:nth-child(2) {
+        width: 30%;
+        margin-right: 5%;
+      }
+      
+      &:last-child {
+        margin-right: 0;
+        width: 30%;
+      }
+    }
+  }
+  
+  #ingredients {
+    @include clearfix();
+    
+    .sidebar {
+      width: 45%;
+      margin-right: 5%;
+      float: left;
+    }
+    
+    .main-content {
+      width: 50%;
+      float: left;
+      clear: none;
+    }  
+  }
+  
+}

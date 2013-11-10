@@ -1,0 +1,68 @@
+/* COPY/PASTE following lines to each new scss file
+
+// default variables
+@import "../vars.scss";
+
+// All default/mobile styles will appear before the following media queries.
+
+@media all and (min-width: $tablet) {
+
+}
+
+@media all and (min-width: $desktop) {
+
+}
+
+*/
+@charset "UTF-8";
+
+// https://kuler.adobe.com/My-Kuler-Theme-color-theme-3048765/
+$color1: #41313a;
+$color2: #f0e1b5;
+$color3: #c2bba8;
+$color4: #a7937e;
+$color5: #735a53;
+
+$background: $color2;
+$fontColorDefault: $color4;
+$fontFamilyHeader: "bree-serif", sans-serif;
+$fontFamilyStandard: "adelle-sans", "Helvetica Nueue", Helvetica, Verdana, sans-serif;
+
+/* Media Queries */
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 960px; 
+$maxwidth: 1200px; // maximum width of wrapper elements
+
+
+@mixin shadow() {
+  -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:    4px 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow:         4px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+@mixin fullshadow() {
+  -webkit-box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:    0px 10px 15px rgba(0, 0, 0, 0.5);
+  box-shadow:         0px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+@mixin rounded() {
+  -webkit-border-top-left-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-bottomright: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+@mixin clearfix() {
+  
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
