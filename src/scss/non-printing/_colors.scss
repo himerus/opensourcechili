@@ -1,0 +1,6 @@
+@each $color, $value in $theme-colors {
+  @include background-variant(".bg-#{$color}", $value);
+}
+@each $color, $value in $grays {
+  @include background-variant(".bg-gray-#{$color}", $value);
+}

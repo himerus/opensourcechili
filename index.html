@@ -1,329 +1,97 @@
-<!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="" lang="en"> <!--<![endif]-->
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-  <title>Open Source Chili | Preparing and canning the best chili you've ever had!</title>
-  <meta name="description" content="Open Source Chili is your ultimate recipe for chili that will have your family or guests clammoring for a second or even third helping.">
-  <meta name="keywords" content="chili, batch, large batch, recipe, canning, preserving, pressure cooker, ball jars, chilli, beans, beef, italian sausage, hot chili, mild chili, medium chili, heat">
-  <meta name="author" content="Open Source Prepper">
-  
-  
-  <!-- Social Media Meta Tags -->
-  <!-- Facebook & Pinterest-->
-  <meta property="og:image" content="http://opensourcechili.com/chili.png"/>
-  <meta property="og:title" content="Open Source Chili"/>
-  <meta property="og:url" content="http://davidwalsh.name/facebook-meta-tags"/>
-  <meta property="og:site_name" content="Open Source Chili"/>
-  <meta property="og:description" content="Open Source Chili is your ultimate recipe for chili that will have your family or guests clammoring for a second or even third helping."/>
-  <meta property="og:type" content="article"/>
-  
-  <meta property="article:section" content="Recipes" />
-  <meta property="article:tag" content="Chili" />
-  <meta property="article:tag" content="Canning" />
-  <meta property="article:tag" content="Recipe" />
-  
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="http://opensourcechili.com">
-  <meta name="twitter:title" content="Open Source Chili">
-  <meta name="twitter:description" content="Open Source Chili is your ultimate recipe for chili that will have your family or guests clammoring for a second or even third helping.">
-  <meta name="twitter:image" content="http://opensourcechili.com/chili.png">
-  <meta name="twitter:site" content="@oscanning">
-  <meta name="twitter:creator" content="@osprepper">
-  
-  
-  <style type="text/css" media="all">
-    @import url("css/normalize.css");
-    @import url("css/simple-slider.css");
-    @import url("css/green-icheck.css");
-    @import url("css/chili.css");
+  <!-- @todo: Add Google Analytics -->
+
+  <meta charset="utf-8"/>
+  <meta name="MobileOptimized" content="width"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="HandheldFriendly" content="true"/>
+  <link rel="icon" href="/assets/images/icon.png">
+  <meta name="apple-touch-fullscreen" content="YES"/>
+  <meta property="og:image" content="http://opensourcechili.com/assets/images/chili.png">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <title>Open Source Chili | The best chili recipe you know</title>
+  <!-- @todo: Add Google Fonts -->
+  <style media="all">
+    @import url("/dist/main.css");
   </style>
-  
-  <script type="text/javascript" src="//use.typekit.net/nao8vps.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript" src="js/min/jquery-2.0.3.min.js"></script>
-  <script type="text/javascript" src="js/min/modernizr.min.js"></script>
-  <script type="text/javascript" src="js/min/jquery.cookie.min.js"></script>
-  <script type="text/javascript" src="js/min/jquery.storageapi.min.js"></script>
-  <script type="text/javascript" src="js/min/simple-slider-touch.min.js"></script>
-  <script type="text/javascript" src="js/min/jquery.scrollTo-1.4.3.1.min.js"></script>
-  <script type="text/javascript" src="js/min/jquery.localscroll-1.2.7.min.js"></script>
-  <script type="text/javascript" src="js/min/fittext.min.js"></script>
-  <script type="text/javascript" src="js/min/jquery.icheck.min.js"></script>
-  <script type="text/javascript" src="js/min/chili.min.js"></script>
+  <script defer src="/assets/static/fa-brands.min.js"></script>
+  <script defer src="/assets/static/fa-regular.min.js"></script>
+  <script defer src="/assets/static/fa-light.min.js"></script>
+  <script defer src="/assets/static/fa-solid.min.js"></script>
+  <script src="/assets/static/fontawesome.js"></script>
 </head>
-
-<body>
-<div id="fb-root"></div>
-
-<a id="toplink" name="top"></a>
-<section id="navbar">
-  <div class="inner">
-    <h1><a href="#top">Open Source Chili</a></h1>
-    
-    <div id="site-navigation"> 
-      <h4><a href="#" class="menu"><img src="i/menu.png" /></a></h4>
-      
-      <ul id="recipe-navigation">
-        <li><a href="#top">Information</a></li>
-        <li><a href="#section1">How Much</a></li>
-        <li><a href="#section2">How Hot</a></li>
-        <li><a href="#section3">Ingredients</a></li>
-        <li><a href="#section4">Instructions</a></li>
-        <li><a href="#section5">Canning</a></li>
-      </ul>
+<body data-offset="70">
+<header id="header" class="header">
+  <!-- Image and text -->
+  <nav id="primay-navbar" class="navbar fixed-top">
+    <div class="navbar-main">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="#intro" role="button">Open Source Chili</a>
     </div>
 
-    <div id="site-share">
-      <h4><a href="#" class="share"><img src="i/share.png" /></a></h4>
+    <div class="navbar-collapse collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#intro"><i class="fal fa-file-alt"></i>Intro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#how-much"><i class="fal fa-tachometer"></i></i>How Much</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#intro"><i class="fal fa-fire"></i></i>How Hot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#intro"><i class="fal fa-list"></i>Ingredients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#intro"><i class="fal fa-list"></i>Instructions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#intro"><i class="fal fa-utensils"></i></i>Canning</a>
+        </li>
+      </ul>
+    </div>
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </nav>
+</header>
+
+<section id="intro" class="horizontal-section horizontal-section--intro cover-image">
+  <div class="container">
+    <div class="row">
+      <div class="column col-md-12">
+        <div class="jumbotron">
+          <h2 class="display-3">Open Source Chili</h2>
+          <p class="lead">The following recipe will guide you through selecting the batch size and heat level, show you the appropriate ingredients, and walk you through the process of making the chili and optionally canning the chili for long term storage.</p>
+          <hr class="mt-3 mb-5">
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div id="wrapper">
-  
-  <header class="clearfix" id="intro">
-    
-    <div class="inner">
-      <section>
-        <h2>What makes a great chili?</h2>
-        <p>Chili, or <a href="http://en.wikipedia.org/wiki/Chili_con_carne" target="_blank">Chili con carne</a> is a food unlike most others. Chili has a almost cult like following of connoisseurs that insist the chili they produce is by far the best anywhere.</p>
-      </section>
-      <section>
-        <h2>Why try this Chili?</h2>
-        <p>Well, you likely found this site/recipe in search of a chili recipe, so it seems like you've found what you're looking for!</p>
-      </section>
-      <section>
-        <h2>Get Started</h2>
-        <p>This section might have a picture or a brief additional introduction for the recipe and instructions.</p>
-      </section>
-    </div>
-  </header>
-  
-  
-  <div id="ingredients" class="inner">
-    <div class="sidebar controls">
-    
-      <section id="section1" class="site-section">
-        <div class="inner">
-          <h2 class="section-header">How much chili do you want?</h2>
-          <div id="output-size" class="input">
-            <div class="batch-size">
-              <div class="number">1</div>
-              <div class="label">Batch</div>
-              <div class="quarts">Approximately <span class="quart-value">5</span> quarts</div>
-            </div>
-            <div class="batch-selector">
-              <input type="text" name="output-size" data-slider="true" data-slider-values="1,2,3,4,5,6,7,8,9,10" data-slider-highlight="true" data-slider-step="1" data-slider-snap="true" />
-              <p>Each batch makes approximately 5 quarts. For a single batch (default) I usually use my crock pot to let the batch simmer all day. However, when making larger batches for canning, I generally use a very large stock pot.</p>
-            </div>
-          </div>
+<section id="how-much" class="horizontal-section horizontal-section--how-much cover-image">
+  <div class="container">
+    <div class="row">
+      <div class="column col-md-12">
+        <div class="jumbotron">
+          <h2 class="display-3">How Much Chili</h2>
+          <p class="lead">Select the options to determine how much you want to make.</p>
+          <hr class="mt-3 mb-5">
         </div>
-      </section>
-      
-      <section id="section2" class="site-section">
-        <div class="inner">
-          <h2 class="section-header">How hot do you like it?</h2>
-          <div id="output-heat" class="input">
-            <div class="batch-heat">
-              <div class="heat-headers">
-                <h3 class="batch-heat mild">Mild</h3>
-                <h3 class="batch-heat medium">Medium</h3>
-                <h3 class="batch-heat hot">Hot</h3>
-              </div>
-              <input type="text" value="2" name="output-heat" data-slider="true" data-slider-values="1,2,3" data-slider-highlight="true" data-slider-step="1" data-slider-snap="true" />
-              <p>The Medium version (default) will produce a good runny nose, and make you sweat a fair deal. The mild still has a decent kick to it, while the hot version will make you intestines bleed.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    
-    </div>
-    
-    <div class="main-content">
-    
-      <section id="section3" class="site-section">
-        <div class="inner">
-          <h2 class="section-header">What you'll need</h2>
-          
-          <table id="recipe">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <!-- Sauce -->
-            <tbody>
-              <tr class="sauce mild medium hot">
-                <td colspan="2">Sauce<span class="toggle-links all-sauce"><a class="all" href="#">Check All</a> / <a class="none" href="#">Unheck All</a></span></td>
-              </tr>
-              <tr class="mild medium hot row-sauce">
-                <td><input type="checkbox" name="crushed-tomatoes"><span class="item-title">Crushed Tomatoes</span><a class="item-link" href="http://bit.ly/HwkBXT" target="_blank">Buy Crushed Tomatoes at Amazon.com</td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">28oz can<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-sauce">
-                <td><input type="checkbox" name="diced-tomatoes"><span class="item-title">Diced Tomatoes</span><a class="item-link" href="http://bit.ly/1bS9Isc" target="_blank">Buy Diced Tomatoes at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="2">2</span> <span class="item-type">14.5oz can<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-sauce">
-                <td><input type="checkbox" name="tomato-sauce"><span class="item-title">Tomato Sauce</span><a class="item-link" href="http://bit.ly/17BPia3" target="_blank">Buy Tomato Sauce at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">15oz can<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-sauce">
-                <td><input type="checkbox" name="water"><span class="item-title">Water</span></td>
-                <td><span class="item-qty" data-qty="2">2</span> <span class="item-type">cup<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <!-- Substance -->
-              <tr class="substance mild medium hot">
-                <td colspan="2">Substance<span class="toggle-links all-substance"><a class="all" href="#">Check All</a> / <a class="none" href="#">Unheck All</a></span></td>
-              </tr>
-              <tr class="mild medium hot row-substance">
-                <td><input type="checkbox" name="beans"><span class="item-title">Beans</span> <div class="item-desc">Dry, Cooked; The weight reference for beans is before the dry beans are cooked. I recommend a mixture of beans, like <a href="http://bit.ly/172g3hW" target="_blank">black beans</a>, <a href="http://bit.ly/HwHQ42" target="_blank">pinto beans</a> & <a href="http://bit.ly/1iHXzZy" target="_blank">kidney beans</a>.</div></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">pound<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-substance">
-                <td><input type="checkbox" name="beef"><span class="item-title">Ground Beef</span> <div class="item-desc">Browned</div></td>
-                <td><span class="item-qty" data-qty="2">2</span> <span class="item-type">pound<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-substance">
-                <td><input type="checkbox" name="sausage"><span class="item-title">Ground Italian Sausage</span> <div class="item-desc">Browned</div></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">pound<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-substance">
-                <td><input type="checkbox" name="onion"><span class="item-title">Onion</span> <div class="item-desc">Large, Chopped</div></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">large</span></td>
-              </tr>
-              <tr class="mild medium hot row-substance">
-                <td><input type="checkbox" name="celery"><span class="item-title">Celery</span> <div class="item-desc">Chopped in 1" slices</div></td>
-                <td><span class="item-qty" data-qty="5">5</span> <span class="item-type">stalk<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <tr class="hot row-substance">
-                <td><input type="checkbox" name="jalapeno"><span class="item-title">Jalape&ntilde;o</span> <div class="item-desc">Chopped or sliced to preference</div></td>
-                <td><span class="item-qty" data-qty="3">3</span> <span class="item-type">any size</span></td>
-              </tr>
-              <!-- Spice -->
-              <tr class="spice mild medium hot">
-                <td colspan="2">Spice<span class="toggle-links all-spice"><a class="all" href="#">Check All</a> / <a class="none" href="#">Unheck All</a></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td>
-                  <input type="checkbox" name="chili-powder"><span class="item-title">Chili Powder</span><a class="item-link" href="http://bit.ly/HqIz6k" target="_blank">Buy Chili Powder at Amazon.com</a>
-                  <div class="item-details">
-                    
-                  </div>
-                </td>
-                <td><span class="item-qty" data-qty="0.25">0.25</span> <span class="item-type">cup<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="bacon-bits"><span class="item-title">Bacon Bits</span><a class="item-link" href="http://bit.ly/1dHHFxZ" target="_blank">Buy Bacon Bits at Amazon.com</a> <div class="item-desc">Your choice of real or fake bacon bits, I prefer bacon flavored pieces!</div></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="worcestershire"><span class="item-title">Worcestershire Sauce</span><a class="item-link" href="http://bit.ly/1dIemeA" target="_blank">Buy Worcestershire Sauce at Amazon.com</a> <div class="item-desc">ONLY use Lea & Perrins brand, all others are imposters!</div></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="tabasco"><span class="item-title">Tabasco Sauce</span><a class="item-link" href="http://bit.ly/1a3bR5a" target="_blank">Buy Tabasco Sauce at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="2">2</span> <span class="item-type">teaspoon<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <tr class="hot row-spice">
-                <td><input type="checkbox" name="sriracha"><span class="item-title">Sriracha</span><a class="item-link" href="http://bit.ly/1aAkmHy" target="_blank">Buy Sriracha at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="oregano"><span class="item-title">Oregano</span><a class="item-link" href="http://bit.ly/1cHUwiz" target="_blank">Buy Oregano at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="cumin"><span class="item-title">Cumin</span><a class="item-link" href="http://bit.ly/1cA30fy" target="_blank">Buy Cumin at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="2">2</span> <span class="item-type">teaspoon<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="basil"><span class="item-title">Basil</span><a class="item-link" href="http://bit.ly/184O4i5" target="_blank">Buy Basil at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="cayenne-pepper"><span class="item-title">Cayenne Pepper</span><a class="item-link" href="http://bit.ly/1a3cFH2" target="_blank">Buy Cayenne Pepper at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="paprika"><span class="item-title">Paprika</span><a class="item-link" href="http://bit.ly/1727WCe" target="_blank">Buy Paprika at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="beef-bouillon"><span class="item-title">Beef Bouillon</span><a class="item-link" href="http://bit.ly/1hHTeI8" target="_blank">Buy Beef Bouillon at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="3">3</span> <span class="item-type">cube<span class="item-plural always-plural">s</span></span></td>
-              </tr>
-              <tr class="mild medium hot row-spice">
-                <td><input type="checkbox" name="black-pepper"><span class="item-title">Black Pepper</span><a class="item-link" href="http://bit.ly/1a3dXll" target="_blank">Buy Black Pepper at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span></td>
-              </tr>
-              <tr class="medium hot row-spice">
-                <td><input type="checkbox" name="crushed-red-pepper"><span class="item-title">Crushed Red Pepper</span><a class="item-link" href="http://bit.ly/19uWp29" target="_blank">Buy Crushed Red Pepper at Amazon.com</a></td>
-                <td><span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span></td>
-              </tr>
-              
-              
-              
-              
-            </tbody>
-          </table>
-        </div>
-      </section>
-    
+      </div>
     </div>
   </div>
-  <section id="section4" class="site-section instructions">
-    <div class="inner">
-      <h2 class="section-header">Instructions</h2>
-      <p>Chili is one of the easier one-pot meals to prepare, and the response you'll get from your lucky taste testers will have you on top of the world for minimal effort!</p>
-      <p>If you are making a single batch to be eaten the same/next day, I recommend using a <a href="http://bit.ly/1aAdpq1" target="_blank">large crock pot</a> that will allow the chili to simmer over low heat for multiple hours before serving or refrigeration. However, if you are making multiple batches for a large group or event, or for canning, you'll need a large enough <a href="http://bit.ly/19v3Pm9" target="_blank">stock pot</a> to accommodate the massive amount of ingredients.</p>
-      
-      <ul>
-        <li>Soak beans overnight in cold water.</li>
-        <li>Drain Beans, cover beans with hot water, and bring to a boil</li>
-        <li>Lower heat to medium, and let the beans slow boil until the are soft and the skin peels back when blowing on a bean.</li>
-        
-        <li>Mix your cans of Crushed Tomatoes, Tomato Sauce, and drained Diced (or Petite Cut) Tomatoes, and water in stock pot and place over medium heat.</li>
-        <li>Combine all dry spices either in directly in the pot, or in a prep bowl. <em>I prefer to measure out my spices the night before into a bowl that can quickly be added to the sauce as it speeds up the prep time on the day you are making the chili.</em></li>
-        
-        <li>Chop Onion to a size of your preference and add to sauce. <em>The Onion can be either added directly to the sauce, or cooked first with the Ground Beef & Italian Sausage</em></li>
-        <li>Brown all Ground Beef & Italian Sausage, drain and add to sauce.</li>
-        <li>Let simmer for 2-8 hours. <em>If you are serving this chili the same day, let it simmer as long as possible. If you are canning the chili, the simmer process is not really needed, so an hour or two of simmer time would be more than enough before processing your jars.</em></li>
-        <li>Cut celery into 1" slices, and add to chili. <em>For best results, only add the celery 30 minutes to 1 hour before serving if doing a single batch in a crock pot, or 30 minutes before placing chili in jars for canning. This ensures they stay as crisp and firm as possible.</em> </li>
-      </ul>
-    </div>
-  </section>
-  <section id="section5" class="site-section canning">
-    <div class="inner">
-      <h2 class="section-header">Canning</h2>
-      <p>When canning chili, I use my <a href="http://bit.ly/1aKKkpU" target="_blank">All American Pressure Cooker/Canner</a>. There is no better pressure cooker/canner on the market. The lack of a rubber gasket/seal means the canner will be working just as well in 30+ years with only greasing the metal to metal seal every few uses.</p>
-      <p>For more information on canning, I highly recommend the following books to get you going. Preserving delicious meals for years to come is much easier than you might think!</p>
-      <ul>
-        <li><a href="http://bit.ly/1aqmmCe" target="_blank">Ball Complete Book of Home Preserving</a></li>
-        <li><a href="http://bit.ly/1hwhqNj" target="_blank">The Prepper's Cookbook</a></li>
-        <li><a href="http://bit.ly/1czHqYF" target="_blank">Food in Jars: Preserving in Small Batches Year-Round</a></li>
-      </ul>
-      <p>These are my canning instructions </p>
-    </div>
-  </section>
+</section>
 
-  <footer></footer>
-</div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-45421937-2', 'opensourcechili.com');
-  ga('send', 'pageview');
-
-</script>
+<script src="/dist/chili.bundle.js"></script>
 </body>
+</html>

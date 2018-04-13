@@ -1,0 +1,22 @@
+.horizontal-section--open-source {
+
+  .os-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include media-breakpoint-up('lg') {
+      justify-content: flex-start;
+    }
+  }
+
+  .repo {
+    width: 45%;
+    @include media-breakpoint-up('lg') {
+      width: 20%;
+      transition: opacity 0.25s ease-in-out;
+      &:hover {
+        opacity: 0.65;
+      }
+    }
+  }
+}

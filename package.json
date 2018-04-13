@@ -1,0 +1,69 @@
+{
+  "name": "opensourcechili.com",
+  "version": "1.0.0",
+  "description": "Open Source Chili recipe website.",
+  "main": "src/js/index.js",
+  "scripts": {
+    "start": "npm-run-all --sequential chili:clean:* chili:watch",
+    "test": "npm-run-all --continue-on-error --sequential test:*",
+    "test:stylelint": "npm-run-all --continue-on-error --sequential chili:scss:stylelint:*",
+    "test:eslint": "npm-run-all --continue-on-error --sequential chili:eslint:*",
+    "chili:webpack:watch": "webpack-cli --progress --colors --watch",
+    "chili:webpack:build": "webpack-cli --progress --colors",
+    "chili:watch": "npm-run-all --continue-on-error --parallel chili:webpack:watch chili:scss:watch:* chili:server",
+    "chili:build": "npm-run-all --continue-on-error --sequential chili:webpack:build chili:scss:build:*",
+    "chili:server": "webpack-dev-server",
+    "chili:clean:core": "rm -rf ./dist",
+    "chili:scss:build:core": "node-sass --output-style expanded --recursive --importer=node_modules/node-sass-tilde-importer ./src/scss/main.scss ./dist/main.css && npm run chili:scss:stylelint:core && npm run chili:scss:autoprefixer:core",
+    "chili:scss:watch:core": "onchange --initial ./**/*.scss -- npm run chili:scss:build:core",
+    "chili:scss:stylelint:core": "stylelint './src/scss/**/*.scss'; exit 0",
+    "chili:eslint:core": "eslint ./src/js/**/*.js; exit 0",
+    "chili:scss:autoprefixer:core": "postcss -u autoprefixer -r ./dist/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himerus/opensourcechili.git"
+  },
+  "author": "Jake Strawn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himerus/opensourcechili/issues"
+  },
+  "homepage": "http://opensourcechili.com",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "jquery-scrollify": "^1.0.19"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.11",
+    "glob": "^7.1.2",
+    "html-webpack-plugin": "^3.1.0",
+    "mini-css-extract-plugin": "^0.3.0",
+    "node-sass": "^4.8.3",
+    "node-sass-tilde-importer": "^1.0.2",
+    "npm-run-all": "^4.1.2",
+    "onchange": "^3.3.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.1",
+    "postcss-cli": "^5.0.0",
+    "stylelint": "^9.1.3",
+    "stylelint-scss": "^2.5.0",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.0",
+    "webpack-merge": "^4.1.2",
+    "webpack-shell-plugin": "^0.5.0"
+  }
+}

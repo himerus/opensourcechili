@@ -1,0 +1,125 @@
+// Image for full screen display with overlay content.
+// @todo: Work on responsive (mobile) version.
+.cover-image {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 120rem;
+
+  // @todo: Look at how to 'lazy-load' the images.
+  // Possibly load a default 'fuzzy' image or version of the target image,
+  // then swap out to a high res when the section is 'loaded'.
+  // transition: background-image 1s ease-in-out;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: 0;
+
+  .jumbotron {
+
+    @include media-breakpoint-only('xs') {
+      margin: 15vh 0;
+    }
+
+    @include media-breakpoint-up('lg') {
+      max-height: 70vh;
+    }
+
+    overflow-y: auto;
+    margin-bottom: 0;
+    width: 100%;
+    background: rgba($gray-200, 0.9);
+
+  }
+
+  h2.display-3 {
+
+    font-size: 2.5rem;
+
+    @include media-breakpoint-up('sm') {
+      font-size: 3.5rem;
+    }
+
+    @include media-breakpoint-up('md') {
+      font-size: 4.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+
+    @include media-breakpoint-up('sm') {
+      font-size: 1.5rem
+    }
+
+    @include media-breakpoint-up('md') {
+      font-size: 1.75rem
+    }
+  }
+
+  .container,
+  .row,
+  .column {
+    min-height: 100vh;
+  }
+
+  .column {
+    display: flex;
+    align-items: center;
+  }
+
+  .cover-section-skip {
+    transition: background-color 0.35s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10vh;
+    background-color: rgba($gray-900, 0.25);
+
+    text-align: center;
+    font-size: 2em;
+    color: $gray-100;
+
+    .svg-inline--fa {
+      position: relative;
+      top: -5px;
+      margin-right: 0;
+      height: 3em;
+      width: 1.5em;
+    }
+
+    a {
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: rgba($gray-100, 0.25);
+    }
+
+    &:hover {
+      background: rgba($primary, 0.65);
+
+      a {
+        color: rgba($gray-100, 1);
+      }
+    }
+  }
+}
+
+// Design specific images for certain classes.
+.cover-image {
+
+  &.horizontal-section--intro {
+    background-image: url('/assets/images/chili/simmer.png');
+
+    @include media-breakpoint-up('md') {
+      background-image: url('/assets/images/chili/simmer.png');
+    }
+    @include media-breakpoint-up('xxl') {
+      background-image: url('/assets/images/chili/simmer.png');
+    }
+  }
+}

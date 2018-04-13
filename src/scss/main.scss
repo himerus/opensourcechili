@@ -1,0 +1,17 @@
+// Include Bootstrap.
+@import "~bootstrap/scss/bootstrap";
+
+// Include customizations.
+@import "non-printing/vars";
+@import "non-printing/mixins";
+@import "non-printing/colors";
+
+// Include default page level overrides.
+@import "printing/page";
+
+// Include adjustments for specific elements.
+@import "printing/elements/navbar";
+@import "printing/elements/cover-images";
+
+// Include adjustments for specific sections.
+@import "printing/sections/00-intro";

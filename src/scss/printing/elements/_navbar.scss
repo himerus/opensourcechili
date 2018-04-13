@@ -1,0 +1,76 @@
+.navbar {
+
+  padding: 0;
+  background: rgba($gray-900, 0.9);
+
+  @include media-breakpoint-only('xs') {
+    max-height: 100%;
+  }
+
+  box-shadow: $default-shadow;
+
+  .navbar-main {
+
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-collapse {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .navbar-brand {
+    color: $gray-100;
+    font-size: 2em;
+    font-family: $font--header;
+
+    img {
+      margin-right: 1em;
+    }
+  }
+
+  .navbar-toggler {
+    padding: 0.40em;
+    background: $gray-100;
+    margin-right: 1em;
+
+    &[aria-expanded="true"] {
+      background: $gray-100;
+    }
+
+    .svg-inline--fa {
+      height: 1.2em;
+      width: 1.2em;
+    }
+  }
+
+  .navbar-nav {
+
+  }
+
+  .nav-item {
+
+    .nav-link {
+      color: $gray-100;
+    }
+
+    .svg-inline--fa {
+      margin-right: 0.5em;
+      width: 1.5em;
+    }
+  }
+
+  .progress {
+    background: transparent; // don't make it visible at first.
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+}

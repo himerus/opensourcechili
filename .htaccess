@@ -1,0 +1,19 @@
+<files webpack.config.js>
+    order allow,deny
+    deny from all
+</files>
+
+<FilesMatch "^(webpack\.config|stylelint\.config|postcss\.config)\.js">
+order allow,deny
+deny from all
+</FilesMatch>
+
+<FilesMatch "^(package|package-lock)\.json">
+order allow,deny
+deny from all
+</FilesMatch>
+
+<FilesMatch "^(\.babelrc|\.eslintrc.js)">
+order allow,deny
+deny from all
+</FilesMatch>
