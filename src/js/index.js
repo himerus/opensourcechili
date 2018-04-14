@@ -1,7 +1,12 @@
 import $ from 'jquery';
 import 'bootstrap';
+import 'bootstrap-checkbox';
 import 'jquery-scrollify';
+import 'rangeslider.js';
+import Storages from 'js-storage';
 import ScrollData from './scrollData';
+
+const storage = Storages.localStorage;
 
 /* eslint-disable no-console */
 const scrollToHash = (e) => {
@@ -165,13 +170,11 @@ const isMobile = () => {
 
   // Close dropdown menu when nav item is clicked.
   $('.navbar .nav-item .nav-link').on('click', () => {
-    if (isMobile()) {
-      $('.navbar-toggler')
-        .addClass('collapsed')
-        .attr('aria-expanded', 'false');
-      $('#navbarContent')
-        .removeClass('show');
-    }
+    $('.navbar-toggler')
+      .addClass('collapsed')
+      .attr('aria-expanded', 'false');
+    $('#navbarContent')
+      .removeClass('show');
   });
 }());
 
@@ -243,6 +246,180 @@ const isMobile = () => {
     $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click((e) => {
       scrollToHash(e);
     });
+  });
+}());
+
+/**
+ * Creates custom checkbox styling for recipe items.
+ * @todo: Add these to local storage so the values are preserved.
+ */
+(function chiliRecipeCheckboxes() {
+  // Add in custom checkboxes.
+  $('.custom-checkbox').checkboxpicker({
+    html: true,
+    offLabel: '<i class="fas fa-times"></i>',
+    onLabel: '<i class="fas fa-check"></i>',
+    baseGroupCls: 'btn-group btn-group--ingredient-toggle',
+    offCls: 'btn-light',
+    onCls: 'btn-light',
+    offActiveCls: 'btn-danger btn--off',
+    onActiveCls: 'btn-success btn--on',
+  });
+
+  // check/uncheck all
+  $('.all-sauce a.all').on('click', () => {
+    $('.row-sauce .custom-checkbox').prop('checked', true);
+    return false;
+  });
+  $('.all-sauce a.none').on('click', () => {
+    $('.row-sauce .custom-checkbox').prop('checked', false);
+    return false;
+  });
+  $('.all-substance a.all').on('click', () => {
+    $('.row-substance .custom-checkbox').prop('checked', true);
+    return false;
+  });
+  $('.all-substance a.none').on('click', () => {
+    $('.row-substance .custom-checkbox').prop('checked', false);
+    return false;
+  });
+  $('.all-spice a.all').on('click', () => {
+    $('.row-spice .custom-checkbox').prop('checked', true);
+    return false;
+  });
+  $('.all-spice a.none').on('click', () => {
+    $('.row-spice .custom-checkbox').prop('checked', false);
+    return false;
+  });
+}());
+
+/**
+ * Function to handle adjusting batch size.
+ * @param {number} size
+ *   The number of batch(es).
+ */
+const batchSizeUpdate = (size) => {
+  // update stored value
+  storage.set('batch-size', size);
+
+  $('.output-size .batch-size .number').html(size);
+
+  // add the appropriately formatted (plural) text
+  if (size > 1) {
+    $('.output-size .batch-size .label').html('Batches');
+  }
+  else {
+    $('.output-size .batch-size .label').html('Batch');
+  }
+
+  // adjust the quarts
+  const quarts = size * 5;
+  $('.output-size .batch-size .quart-value').html(quarts);
+
+  // update the recipe
+  // Not using es6 arrow function here as I want to actually use the iterated this.
+  $('.recipe-ingredients td span.item-qty').each(function adjustQuantities() {
+    const thisQty = $(this).attr('data-qty') * size;
+    $(this).html(thisQty);
+
+    if (thisQty > 1) {
+      $(this).next('.item-type').children('.item-plural').addClass('is-plural');
+    }
+    else {
+      $(this).next('.item-type').children('.item-plural').removeClass('is-plural');
+    }
+  });
+};
+
+/**
+ * Handles updating the quantity of batches.
+ */
+(function chiliRecipeAmountQuantitySlider() {
+  const $slider = $('.output-size input[type="range"]');
+  // console.log($slider);
+  $slider.rangeslider({
+    // Feature detection the default is `true`.
+    // Set this to `false` if you want to use
+    // the polyfill also in Browsers which support
+    // the native <input type="range"> element.
+    polyfill: false,
+    // Callback function
+    onSlide: (position, value) => {
+      batchSizeUpdate(value);
+    },
+  });
+
+  $(window).on('load ready', () => {
+    const storedBatchSize = storage.get('batch-size');
+    let value;
+    if (storedBatchSize) {
+      value = storedBatchSize;
+      $slider.val(storedBatchSize);
+    }
+    else {
+      value = $slider.val();
+    }
+    batchSizeUpdate(value);
+    $slider.rangeslider('update', true);
+  });
+}());
+
+/**
+ * Function to handle adjusting batch heat level.
+ * @param {number} heat
+ *   The numerical value of the heat level.
+ */
+const batchHeatUpdate = (heat) => {
+  const heatTxt = {
+    1: 'mild',
+    2: 'medium',
+    3: 'hot',
+  };
+
+  const heatClass = heatTxt[heat];
+  // update stored value
+  storage.set('batch-heat', heat);
+
+  $('.recipe-ingredients tbody tr').each(() => {
+    if ($(this).hasClass(heatClass)) {
+      $(this).slideDown('slow');
+    }
+    else {
+      $(this).slideUp('slow');
+    }
+  });
+};
+
+/**
+ * Handles updating the heat of the batch(es).
+ */
+(function chiliRecipeAmountHeatSlider() {
+  const $slider = $('.output-heat input[type="range"]');
+  // console.log($slider);
+  $slider.rangeslider({
+    // Feature detection the default is `true`.
+    // Set this to `false` if you want to use
+    // the polyfill also in Browsers which support
+    // the native <input type="range"> element.
+    polyfill: false,
+    // Callback function
+    onSlide: (position, value) => {
+      batchHeatUpdate(value);
+    },
+  });
+
+  $(window).on('load ready', () => {
+    const storedHeatLevel = storage.get('batch-heat');
+    let value;
+    if (storedHeatLevel) {
+      value = storedHeatLevel;
+      $slider.val(value);
+    }
+    else {
+      value = $slider.val();
+    }
+    batchHeatUpdate(value);
+    $slider.rangeslider('update', true);
   });
 }());
 /* eslint-enable no-console */

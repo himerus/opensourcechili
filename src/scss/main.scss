@@ -12,6 +12,12 @@
 // Include adjustments for specific elements.
 @import "printing/elements/navbar";
 @import "printing/elements/cover-images";
+@import "printing/elements/rangesliders";
 
 // Include adjustments for specific sections.
 @import "printing/sections/00-intro";
+@import "printing/sections/01-how-much";
+@import "printing/sections/02-how-hot";
+@import "printing/sections/03-ingredients";
+@import "printing/sections/04-instructions";
+@import "printing/sections/05-canning";

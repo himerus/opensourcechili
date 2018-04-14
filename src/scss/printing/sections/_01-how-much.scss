@@ -1,0 +1,40 @@
+.horizontal-section--how-much {
+
+  .batch-size {
+    font-family: $font--header;
+    font-size: 3rem;
+    text-align: center;
+
+    .number {
+      font-size: 8rem;
+      line-height: 6rem;
+    }
+
+    .quarts {
+      font-size: 1rem;
+      line-height: 0.5rem;
+      font-family: $font--sans;
+    }
+
+    .quart-value {
+
+    }
+  }
+
+  .output-size {
+    margin: 2em 0 0 0;
+
+    @include media-breakpoint-up('lg') {
+      display: flex;
+      justify-content: center;
+
+      .batch-size {
+        width: 25%
+      }
+
+      .batch-selector {
+        width: 75%;
+      }
+    }
+  }
+}

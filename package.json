@@ -32,8 +32,11 @@
   "homepage": "http://opensourcechili.com",
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "bootstrap-checkbox": "^1.5.0",
     "jquery": "^3.3.1",
-    "jquery-scrollify": "^1.0.19"
+    "jquery-scrollify": "^1.0.19",
+    "js-storage": "^1.0.4",
+    "rangeslider.js": "^2.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

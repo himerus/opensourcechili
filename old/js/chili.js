@@ -1,60 +1,60 @@
 (function($) {
   
-  $.fn.sizeUpdate = function(batchSize) {
-    // update stored value
-    storage.set('batch-size', batchSize);
-    
-    $('#output-size .batch-size .number').html(batchSize);
-    // add the appropriately formated (plural) text
-    if (batchSize > 1) {
-      $('#output-size .batch-size .label').html("Batches");  
-    }
-    else {
-      $('#output-size .batch-size .label').html("Batch");  
-    }
-    
-    // adjust the quarts
-    var quarts = batchSize * 5;
-    $('#output-size .batch-size .quart-value').html(quarts);
-    
-    // update the recipe
-    $('#recipe td span.item-qty').each(function(){
-      var thisQty = $(this).attr('data-qty') * batchSize;
-      $(this).html(thisQty);
-      
-      if (thisQty > 1) {
-        $(this).next('.item-type').children('.item-plural').addClass('is-plural');
-      }
-      else {
-        $(this).next('.item-type').children('.item-plural').removeClass('is-plural');
-      }
-    });
-  };
+  // $.fn.sizeUpdate = function(batchSize) {
+  //   // update stored value
+  //   storage.set('batch-size', batchSize);
+  //
+  //   $('#output-size .batch-size .number').html(batchSize);
+  //   // add the appropriately formated (plural) text
+  //   if (batchSize > 1) {
+  //     $('#output-size .batch-size .label').html("Batches");
+  //   }
+  //   else {
+  //     $('#output-size .batch-size .label').html("Batch");
+  //   }
+  //
+  //   // adjust the quarts
+  //   var quarts = batchSize * 5;
+  //   $('#output-size .batch-size .quart-value').html(quarts);
+  //
+  //   // update the recipe
+  //   $('#recipe td span.item-qty').each(function(){
+  //     var thisQty = $(this).attr('data-qty') * batchSize;
+  //     $(this).html(thisQty);
+  //
+  //     if (thisQty > 1) {
+  //       $(this).next('.item-type').children('.item-plural').addClass('is-plural');
+  //     }
+  //     else {
+  //       $(this).next('.item-type').children('.item-plural').removeClass('is-plural');
+  //     }
+  //   });
+  // };
   
-  $.fn.heatUpdate = function(batchHeat) {
-    
-    var heatTxt = {
-      1: "mild",
-      2: "medium",
-      3: "hot",
-    }
-    
-    //var heatTxt = new Array ("mild","medium","hot");
-    var heatClass = heatTxt[batchHeat];
-    // update stored value
-    storage.set('batch-heat', batchHeat);
-    //console.log('heat: ' + heat);
-    //heatClass = heatTxt[heat];
-      
-    $('#recipe tbody tr').each(function(){
-      if ($(this).hasClass(heatClass)) {
-        $(this).slideDown('slow');
-      }
-      else {
-        $(this).slideUp('slow');
-      }
-    });
-  };
+  // $.fn.heatUpdate = function(batchHeat) {
+  //
+  //   var heatTxt = {
+  //     1: "mild",
+  //     2: "medium",
+  //     3: "hot",
+  //   }
+  //
+  //   //var heatTxt = new Array ("mild","medium","hot");
+  //   var heatClass = heatTxt[batchHeat];
+  //   // update stored value
+  //   storage.set('batch-heat', batchHeat);
+  //   //console.log('heat: ' + heat);
+  //   //heatClass = heatTxt[heat];
+  //
+  //   $('#recipe tbody tr').each(function(){
+  //     if ($(this).hasClass(heatClass)) {
+  //       $(this).slideDown('slow');
+  //     }
+  //     else {
+  //       $(this).slideUp('slow');
+  //     }
+  //   });
+  // };
   
   $.fn.checkboxLoader = function() {
     var cbox = $(this[0]);
@@ -206,56 +206,56 @@
     });
     
     
-    // checkboxes for recipe
-    $(':checkbox').iCheck({
-      labelHover: false,
-      cursor: true,
-      checkboxClass: 'icheck icheckbox_square-green',
-    });
-    
-    // check/uncheck all
-    $('.all-sauce a.all').click(function(){
-      $('.row-sauce input:checkbox:not(:hidden)').iCheck('check', function(){
-        // run callback
-      });
-      return false;
-    });
-    $('.all-sauce a.none').click(function(){
-      $('.row-sauce input:checkbox').iCheck('uncheck', function(){
-        // run callback
-      });
-      return false;
-    });
-    $('.all-substance a.all').click(function(){
-      $('.row-substance input:checkbox:not(:hidden)').iCheck('check', function(){
-        // run callback
-      });
-      return false;
-    });
-    $('.all-substance a.none').click(function(){
-      $('.row-substance input:checkbox').iCheck('uncheck', function(){
-        // run callback
-      });
-      return false;
-    });
-    $('.all-spice a.all').click(function(){
-      $('.row-spice input:checkbox:not(:hidden)').iCheck('check', function(){
-        // run callback
-      });
-      return false;
-    });
-    $('.all-spice a.none').click(function(){
-      $('.row-spice input:checkbox').iCheck('uncheck', function(){
-        // run callback
-      });
-      return false;
-    });
-    
+    // // checkboxes for recipe
+    // $(':checkbox').iCheck({
+    //   labelHover: false,
+    //   cursor: true,
+    //   checkboxClass: 'icheck icheckbox_square-green',
+    // });
+    //
+    // // check/uncheck all
+    // $('.all-sauce a.all').click(function(){
+    //   $('.row-sauce input:checkbox:not(:hidden)').iCheck('check', function(){
+    //     // run callback
+    //   });
+    //   return false;
+    // });
+    // $('.all-sauce a.none').click(function(){
+    //   $('.row-sauce input:checkbox').iCheck('uncheck', function(){
+    //     // run callback
+    //   });
+    //   return false;
+    // });
+    // $('.all-substance a.all').click(function(){
+    //   $('.row-substance input:checkbox:not(:hidden)').iCheck('check', function(){
+    //     // run callback
+    //   });
+    //   return false;
+    // });
+    // $('.all-substance a.none').click(function(){
+    //   $('.row-substance input:checkbox').iCheck('uncheck', function(){
+    //     // run callback
+    //   });
+    //   return false;
+    // });
+    // $('.all-spice a.all').click(function(){
+    //   $('.row-spice input:checkbox:not(:hidden)').iCheck('check', function(){
+    //     // run callback
+    //   });
+    //   return false;
+    // });
+    // $('.all-spice a.none').click(function(){
+    //   $('.row-spice input:checkbox').iCheck('uncheck', function(){
+    //     // run callback
+    //   });
+    //   return false;
+    // });
+
     // load stored values
     $(':checkbox').each(function() {
       $(this).checkboxLoader();
     });
-    
+
     // update stored values
     $(':checkbox').on('ifToggled', function() {
       $(this).checkboxSaver();

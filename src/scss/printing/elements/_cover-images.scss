@@ -18,16 +18,8 @@
 
   .jumbotron {
 
-    @include media-breakpoint-only('xs') {
-      margin: 15vh 0;
-    }
-
-    @include media-breakpoint-up('lg') {
-      max-height: 70vh;
-    }
-
+    margin: 20vh 0 15vh 0;
     overflow-y: auto;
-    margin-bottom: 0;
     width: 100%;
     background: rgba($gray-200, 0.9);
 
@@ -112,14 +104,65 @@
 // Design specific images for certain classes.
 .cover-image {
 
+  // Available images are as follows:
+  // cayenne.jpg
+  // spices.jpg
+  // cutting-board.jpg
+  // jars.jpg
+  // stock-pots.jpg
+
   &.horizontal-section--intro {
-    background-image: url('/assets/images/chili/simmer.png');
+    background-image: url('/assets/images/cover-images/xxl/cutting-board.jpg');
 
     @include media-breakpoint-up('md') {
-      background-image: url('/assets/images/chili/simmer.png');
+      background-image: url('/assets/images/cover-images/xxl/cutting-board.jpg');
     }
     @include media-breakpoint-up('xxl') {
-      background-image: url('/assets/images/chili/simmer.png');
+      background-image: url('/assets/images/cover-images/xxl/cutting-board.jpg');
+    }
+  }
+
+  &.horizontal-section--how-much {
+    background-image: url('/assets/images/cover-images/xxl/jars.jpg');
+
+    @include media-breakpoint-up('md') {
+      background-image: url('/assets/images/cover-images/xxl/jars.jpg');
+    }
+    @include media-breakpoint-up('xxl') {
+      background-image: url('/assets/images/cover-images/xxl/jars.jpg');
+    }
+  }
+
+  &.horizontal-section--how-hot {
+    background-image: url('/assets/images/cover-images/xxl/cayenne.jpg');
+
+    @include media-breakpoint-up('md') {
+      background-image: url('/assets/images/cover-images/xxl/cayenne.jpg');
+    }
+    @include media-breakpoint-up('xxl') {
+      background-image: url('/assets/images/cover-images/xxl/cayenne.jpg');
+    }
+  }
+
+  &.horizontal-section--ingredients {
+    background-image: url('/assets/images/cover-images/xxl/spices.jpg');
+
+    @include media-breakpoint-up('md') {
+      background-image: url('/assets/images/cover-images/xxl/spices.jpg');
+    }
+    @include media-breakpoint-up('xxl') {
+      background-image: url('/assets/images/cover-images/xxl/spices.jpg');
+    }
+  }
+
+  &.horizontal-section--instructions {
+    background-image: url('/assets/images/cover-images/xxl/stock-pots.jpg');
+
+    @include media-breakpoint-up('md') {
+      background-image: url('/assets/images/cover-images/xxl/stock-pots.jpg');
+    }
+    @include media-breakpoint-up('xxl') {
+      background-image: url('/assets/images/cover-images/xxl/stock-pots.jpg');
     }
   }
 }

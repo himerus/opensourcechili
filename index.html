@@ -15,6 +15,8 @@
   <meta property="og:image:height" content="512">
   <title>Open Source Chili | The best chili recipe you know</title>
   <!-- @todo: Add Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
   <style media="all">
     @import url("/dist/main.css");
   </style>
@@ -45,16 +47,16 @@
           <a class="nav-link" href="#how-much"><i class="fal fa-tachometer"></i></i>How Much</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#intro"><i class="fal fa-fire"></i></i>How Hot</a>
+          <a class="nav-link" href="#how-hot"><i class="fal fa-fire"></i></i>How Hot</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#intro"><i class="fal fa-list"></i>Ingredients</a>
+          <a class="nav-link" href="#ingredients"><i class="fal fa-list"></i>Ingredients</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#intro"><i class="fal fa-list"></i>Instructions</a>
+          <a class="nav-link" href="#instructions"><i class="fal fa-list"></i>Instructions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#intro"><i class="fal fa-utensils"></i></i>Canning</a>
+          <a class="nav-link" href="#canning"><i class="fal fa-utensils"></i></i>Canning</a>
         </li>
       </ul>
     </div>
@@ -70,11 +72,20 @@
       <div class="column col-md-12">
         <div class="jumbotron">
           <h2 class="display-3">Open Source Chili</h2>
-          <p class="lead">The following recipe will guide you through selecting the batch size and heat level, show you the appropriate ingredients, and walk you through the process of making the chili and optionally canning the chili for long term storage.</p>
-          <hr class="mt-3 mb-5">
-        </div>
+          <p class="lead">The following recipe will guide you through selecting the <a href="#how-much">batch size</a> and <a href="#how-hot">heat level</a>, show you the appropriate <a href="#ingredients">ingredients</a>, and walk you through the process of <a href="#instructions">making the chili</a> and optionally <a href="#canning">canning the chili</a> for long term storage.</p>
+          <hr class="my-3">
+          <p>Chili, or <a href="http://en.wikipedia.org/wiki/Chili_con_carne">Chili con carne</a> is a food unlike most others. Chili has a almost cult like following of connoisseurs that insist the chili they produce is by far the best anywhere.</p>
+          <h4>Why this chili recipe?</h4>
+          <p>You likely found this site/recipe in search of a chili recipe, so it seems like you've found what you're looking for! Give it a shot and you won't be disappointed!</p>
+          <div class="section-navigation" aria-label="Navigation Buttons">
+            <a class="btn btn-lg btn-primary mt-1" href="#how-much" role="button">Customize Amount</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#how-hot" role="button">Customize Heat</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#ingredients" role="button">Ingredients</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#instructions" role="button">Instructions</a>
+          </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -83,9 +94,430 @@
     <div class="row">
       <div class="column col-md-12">
         <div class="jumbotron">
-          <h2 class="display-3">How Much Chili</h2>
+          <h2 class="display-3">How Much Chili?</h2>
           <p class="lead">Select the options to determine how much you want to make.</p>
-          <hr class="mt-3 mb-5">
+          <hr class="my-3">
+          <div id="output-size" class="output-size input">
+            <div class="batch-size">
+              <div class="number">1</div>
+              <div class="label">Batch</div>
+              <div class="quarts">Approximately <span class="quart-value">5</span> quarts</div>
+            </div>
+            <div class="batch-selector">
+              <input type="range" name="output-size" min="1" max="10" step="1" value="1" />
+              <p>Each batch makes approximately 5 quarts. For a single batch (default) I usually use my crock pot to let the batch simmer all day. However, when making larger batches for canning, I generally use a very large stock pot.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-hot" class="horizontal-section horizontal-section--how-hot cover-image">
+  <div class="container">
+    <div class="row">
+      <div class="column col-md-12">
+        <div class="jumbotron">
+          <h2 class="display-3">How Hot?</h2>
+          <p class="lead">Selecting a heat level will affect the ingredients in the next section(s).</p>
+          <hr class="my-3">
+          <div id="output-heat" class="output-heat input">
+            <div class="batch-heat">
+              <div class="heat-headers">
+                <h3 class="batch-heat mild">Mild</h3>
+                <h3 class="batch-heat medium">Medium</h3>
+                <h3 class="batch-heat hot">Hot</h3>
+              </div>
+              <input type="range" name="output-heat" min="1" max="3" step="1" value="2" />
+              <p>The Medium version (default) will produce a good runny nose, and make you sweat a fair deal. The mild still has a decent kick to it, while the hot version will make your intestines bleed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ingredients" class="horizontal-section horizontal-section--ingredients cover-image">
+  <div class="container">
+    <div class="row">
+      <div class="column col-md-12">
+        <div class="jumbotron">
+          <h2 class="display-3">Ingredients</h2>
+          <hr class="my-3">
+          <table class="recipe-ingredients">
+            <thead>
+            <tr>
+              <th>Item</th>
+              <th>Amount</th>
+            </tr>
+            </thead>
+            <!-- Sauce -->
+            <tbody>
+            <tr class="sauce mild medium hot">
+              <td colspan="2">Sauce<span class="toggle-links all-sauce"><a class="all" href="#">Check All</a> / <a class="none" href="#">Uncheck All</a></span></td>
+            </tr>
+            <tr class="mild medium hot row-sauce">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="crushed-tomatoes"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Crushed Tomatoes</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/HwkBXT" title="Buy Crushed Tomatoes at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">28oz can<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-sauce">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="diced-tomatoes"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Diced Tomatoes</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1bS9Isc" title="Buy Diced Tomatoes at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="2">2</span> <span class="item-type">14.5oz can<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-sauce">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="tomato-sauce"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Tomato Sauce</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/17BPia3" title="Buy Tomato Sauce at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">15oz can<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-sauce">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="water"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Water</span>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="2">2</span> <span class="item-type">cup<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <!-- Substance -->
+            <tr class="substance mild medium hot">
+              <td colspan="2">Substance<span class="toggle-links all-substance"><a class="all" href="#">Check All</a> / <a class="none" href="#">Uncheck All</a></span></td>
+            </tr>
+            <tr class="mild medium hot row-substance">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="beans"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Beans</span>
+                    <div class="item-desc">Dry, Cooked; The weight reference for beans is before the dry beans are cooked. I recommend a mixture of beans, like <a href="http://bit.ly/172g3hW">black beans</a>, <a href="http://bit.ly/HwHQ42">pinto beans</a> & <a href="http://bit.ly/1iHXzZy">kidney beans</a>.</div>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">pound<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-substance">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="beef"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Ground Beef</span>
+                    <div class="item-desc">Browned</div>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="2">2</span> <span class="item-type">pound<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-substance">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="sausage"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Ground Italian Sausage</span>
+                    <div class="item-desc">Browned</div>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">pound<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-substance">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="onion"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Onion</span>
+                    <div class="item-desc">Large, Chopped</div>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">large</span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-substance">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="celery"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Celery</span>
+                    <div class="item-desc">Chopped in 1" slices</div>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="5">5</span> <span class="item-type">stalk<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="hot row-substance">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="jalapeno"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Jalape&ntilde;o</span>
+                    <div class="item-desc">Chopped or sliced to preference</div>
+                  </div>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="3">3</span> <span class="item-type">any size</span>
+              </td>
+            </tr>
+            <!-- Spice -->
+            <tr class="spice mild medium hot">
+              <td colspan="2">Spice<span class="toggle-links all-spice"><a class="all" href="#">Check All</a> / <a class="none" href="#">Uncheck All</a></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="chili-powder"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Chili Powder</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/HqIz6k" title="Buy Chili Powder at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="0.25">0.25</span> <span class="item-type">cup<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="bacon-bits"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Bacon Bits</span>
+                    <div class="item-desc">Your choice of real or fake bacon bits, I prefer bacon flavored pieces!</div>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1dHHFxZ" title="Buy Bacon Bits at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="worcestershire"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Worcestershire Sauce</span>
+                    <div class="item-desc">ONLY use Lea & Perrins brand, all others are imposters!</div>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1dIemeA" title="Buy Worcestershire Sauce at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="tabasco"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Tabasco Sauce</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1a3bR5a" title="Buy Tabasco Sauce at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="2">2</span> <span class="item-type">teaspoon<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="sriracha"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Sriracha</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1aAkmHy" title="Buy Sriracha at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="oregano"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Oregano</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1cHUwiz" title="Buy Oregano at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">tbsp<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="cumin"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Cumin</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1cA30fy" title="Buy Cumin at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="2">2</span> <span class="item-type">teaspoon<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="basil"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Basil</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/184O4i5" title="Buy Basil at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="cayenne-pepper"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Cayenne Pepper</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1a3cFH2" title="Buy Cayenne Pepper at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="paprika"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Paprika</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1727WCe" title="Buy Paprika at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="beef-bouillon"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Beef Bouillon</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1hHTeI8" title="Buy Beef Bouillon at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="3">3</span> <span class="item-type">cube<span class="item-plural always-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="mild medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="black-pepper"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Black Pepper</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/1a3dXll" title="Buy Black Pepper at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            <tr class="medium hot row-spice">
+              <td class="ingredient--item">
+                <div class="ingredient--data">
+                  <div class="ingredient--interact"><input type="checkbox" class="custom-checkbox" name="crushed-red-pepper"></div>
+                  <div class="ingredient--details">
+                    <span class="item-title">Crushed Red Pepper</span>
+                  </div>
+                  <a class="item-link" href="http://bit.ly/19uWp29" title="Buy Crushed Red Pepper at Amazon.com"><i class="fal fa-shopping-cart"></i></a>
+                </div>
+              </td>
+              <td class="ingredient--qty">
+                <span class="item-qty" data-qty="1">1</span> <span class="item-type">teaspoon<span class="item-plural">s</span></span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="instructions" class="horizontal-section horizontal-section--instructions cover-image">
+  <div class="container">
+    <div class="row">
+      <div class="column col-md-12">
+        <div class="jumbotron">
+          <h2 class="display-3">Instructions</h2>
+          <hr class="my-3">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="canning" class="horizontal-section horizontal-section--canning cover-image">
+  <div class="container">
+    <div class="row">
+      <div class="column col-md-12">
+        <div class="jumbotron">
+          <h2 class="display-3">Canning Chili</h2>
+          <hr class="my-3">
         </div>
       </div>
     </div>

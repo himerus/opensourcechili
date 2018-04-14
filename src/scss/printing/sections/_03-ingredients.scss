@@ -1,0 +1,175 @@
+// All default/mobile styles will appear before the following media queries.
+.recipe-ingredients {
+  width: 100%;
+  font-size: 1rem;
+  background: rgba(#FFF, 0.5);
+  display: block;
+
+  .toggle-links {
+    font-size: 0.8rem;
+    font-family: $font--sans;
+    float: right;
+    margin-top: 8px;
+
+    a {
+      text-decoration: none;
+      color: $white;
+
+      &:hover {
+        color: $gray-200;
+      }
+    }
+  }
+
+  .ingredient--data {
+    display: flex;
+    align-items: center;
+
+    .ingredient--interact {
+      margin-right: 1em;
+    }
+
+    .ingredient--details {
+      flex-grow: 1;
+    }
+
+    .item-link {
+      justify-self: flex-end;
+    }
+
+    .item-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  .ingredient--qty {
+    font-size: 1.25rem;
+
+    .item-type {
+      font-size: 0.8rem;
+    }
+  }
+
+  .btn-group {
+    outline: none;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  .item-link {
+    color: $primary;
+    opacity: 0.75;
+    float: right;
+    transition: opacity ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  thead {
+    display: block;
+
+    tr {
+      display: flex;
+      width: 100%;
+      position: relative;
+      @include clearfix();
+
+      th {
+        font-size: 1.25rem;
+        font-family: $font--header;
+        font-weight: 700;
+
+        background: $gray-900;
+        color: $white;
+        min-height: 50px;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th:first-child {
+        width: 70%;
+      }
+      th:last-child {
+        width: 30%;
+      }
+    }
+
+  }
+
+  tbody {
+    display: block;
+
+    tr {
+      display: flex;
+      // justify-content: space-between;
+
+      border-bottom: 1px solid rgba($primary, 0.2);
+      width: 100%;
+      position: relative;
+
+      .ingredient--item {
+        width: 70%;
+        // flex-grow: 1;
+      }
+      .ingredient--qty {
+        width: 30%;
+      }
+    }
+
+    td {
+      padding: 10px;
+      font-family: $font--header;
+      font-weight: 400;
+
+      .item-qty {
+        margin-right: 5px;
+      }
+
+      .item-plural {
+        display: none;
+
+        &.always-plural,
+        &.is-plural {
+          display: inline;
+        }
+      }
+      .item-desc {
+        font-size: 0.75rem;
+        font-family: $font--sans;
+        color: $gray-700;
+      }
+    }
+
+    // "header" rows.
+    tr.sauce,
+    tr.substance,
+    tr.spice {
+
+      td {
+        color: $white;
+        padding: 10px;
+        font-size: 1.25rem;
+        font-family: $font--header;
+        font-weight: 700;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    tr.sauce {
+      background: #c63f3f;
+    }
+    tr.substance {
+      background: #c68b3f;
+    }
+    tr.spice {
+      background: #c6bb3f;
+    }
+  }
+}
