@@ -264,6 +264,22 @@ const isMobile = () => {
     onCls: 'btn-light',
     offActiveCls: 'btn-danger btn--off',
     onActiveCls: 'btn-success btn--on',
+  })
+    .on('change', function updateIngredientStatus() {
+      const checked = $(this).prop('checked');
+      const ingredient = $(this).attr('name');
+      // console.log(`${ingredient}: ${checked}`);
+      storage.set(`ingredient--${ingredient}`, checked);
+    });
+
+  $(window).on('load', () => {
+    $('.custom-checkbox').each(function loadIngredientStatus() {
+      const ingredient = $(this).attr('name');
+      const storedIngredientStatus = storage.get(`ingredient--${ingredient}`);
+      if (storedIngredientStatus) {
+        $(this).prop('checked', storedIngredientStatus);
+      }
+    });
   });
 
   // check/uncheck all
