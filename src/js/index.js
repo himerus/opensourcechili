@@ -249,13 +249,43 @@ const isMobile = () => {
   });
 }());
 
+(function chiliInstructionCheckboxes() {
+
+  // Add in custom checkboxes.
+  $('.instruction-checkbox').checkboxpicker({
+    html: true,
+    offLabel: '<i class="fas fa-times"></i>',
+    onLabel: '<i class="fas fa-check"></i>',
+    baseGroupCls: 'btn-group btn-group--ingredient-toggle',
+    offCls: 'btn-light',
+    onCls: 'btn-light',
+    offActiveCls: 'btn-danger btn--off',
+    onActiveCls: 'btn-success btn--on',
+  })
+    .on('change', function updateInstructionStatus() {
+      const checked = $(this).prop('checked');
+      const instruction = $(this).attr('name');
+      // console.log(`${ingredient}: ${checked}`);
+      storage.set(`instruction--${instruction}`, checked);
+    });
+
+  $(window).on('load', () => {
+    $('.instruction-checkbox').each(function loadInstructionStatus() {
+      const instruction = $(this).attr('name');
+      const storedInstructionStatus = storage.get(`instruction--${instruction}`);
+      if (storedInstructionStatus) {
+        $(this).prop('checked', storedInstructionStatus);
+      }
+    });
+  });
+}());
+
 /**
  * Creates custom checkbox styling for recipe items.
- * @todo: Add these to local storage so the values are preserved.
  */
-(function chiliRecipeCheckboxes() {
+(function chiliIngredientCheckboxes() {
   // Add in custom checkboxes.
-  $('.custom-checkbox').checkboxpicker({
+  $('.ingredient-checkbox').checkboxpicker({
     html: true,
     offLabel: '<i class="fas fa-times"></i>',
     onLabel: '<i class="fas fa-check"></i>',
@@ -273,7 +303,7 @@ const isMobile = () => {
     });
 
   $(window).on('load', () => {
-    $('.custom-checkbox').each(function loadIngredientStatus() {
+    $('.ingredient-checkbox').each(function loadIngredientStatus() {
       const ingredient = $(this).attr('name');
       const storedIngredientStatus = storage.get(`ingredient--${ingredient}`);
       if (storedIngredientStatus) {
@@ -284,27 +314,27 @@ const isMobile = () => {
 
   // check/uncheck all
   $('.all-sauce a.all').on('click', () => {
-    $('.row-sauce .custom-checkbox').prop('checked', true);
+    $('.row-sauce .ingredient-checkbox').prop('checked', true);
     return false;
   });
   $('.all-sauce a.none').on('click', () => {
-    $('.row-sauce .custom-checkbox').prop('checked', false);
+    $('.row-sauce .ingredient-checkbox').prop('checked', false);
     return false;
   });
   $('.all-substance a.all').on('click', () => {
-    $('.row-substance .custom-checkbox').prop('checked', true);
+    $('.row-substance .ingredient-checkbox').prop('checked', true);
     return false;
   });
   $('.all-substance a.none').on('click', () => {
-    $('.row-substance .custom-checkbox').prop('checked', false);
+    $('.row-substance .ingredient-checkbox').prop('checked', false);
     return false;
   });
   $('.all-spice a.all').on('click', () => {
-    $('.row-spice .custom-checkbox').prop('checked', true);
+    $('.row-spice .ingredient-checkbox').prop('checked', true);
     return false;
   });
   $('.all-spice a.none').on('click', () => {
-    $('.row-spice .custom-checkbox').prop('checked', false);
+    $('.row-spice .ingredient-checkbox').prop('checked', false);
     return false;
   });
 }());

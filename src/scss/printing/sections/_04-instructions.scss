@@ -1,0 +1,26 @@
+// Section 'intro'.
+.horizontal-section--instructions {
+
+}
+
+.horizontal-section--instruction-sections {
+  background: $gray-400;
+  padding: 15vh 0 10vh 0;
+
+  .btn-group {
+    margin-right: 1em;
+    outline: none;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  .card-footer {
+    font-size: 0.9em;
+    font-style: italic;
+    background: $gray-400;
+    color: $gray-600;
+  }
+}

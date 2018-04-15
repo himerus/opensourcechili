@@ -12,13 +12,21 @@
     @include media-breakpoint-up('sm') {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
+      .btn {
+        width: 49%;
+        margin-bottom: 0.35em;
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
       .btn {
         width: 24%;
       }
     }
 
-    @include media-breakpoint-up('lg') {
+    @include media-breakpoint-up('xl') {
       .btn {
         padding: 1.5rem 1rem;
         font-size: 1.2em;
