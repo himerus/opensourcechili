@@ -137,7 +137,7 @@
     background-image: url('/assets/images/cover-images/md/cayenne.jpg');
 
     @include media-breakpoint-up('md') {
-      background-image: url('/assets/images/cover-images/xxl/cayenne.jpg');
+      background-image: url('/assets/images/cover-images/xl/cayenne.jpg');
     }
     @include media-breakpoint-up('xxl') {
       background-image: url('/assets/images/cover-images/xxl/cayenne.jpg');
@@ -163,6 +163,17 @@
     }
     @include media-breakpoint-up('xxl') {
       background-image: url('/assets/images/cover-images/xxl/stock-pots.jpg');
+    }
+  }
+
+  &.horizontal-section--reading {
+    background-image: url('/assets/images/cover-images/xxl/books.jpg');
+
+    @include media-breakpoint-up('md') {
+      background-image: url('/assets/images/cover-images/xxl/books.jpg');
+    }
+    @include media-breakpoint-up('xxl') {
+      background-image: url('/assets/images/cover-images/xxl/books.jpg');
     }
   }
 }
