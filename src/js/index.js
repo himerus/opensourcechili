@@ -1,10 +1,15 @@
 import $ from 'jquery';
 import 'bootstrap';
+// @see https://github.com/vsn4ik/bootstrap-checkbox.
 import 'bootstrap-checkbox';
+// @see https://github.com/lukehaas/Scrollify.
 import 'jquery-scrollify';
+// @see https://github.com/andreruffert/rangeslider.js.
 import 'rangeslider.js';
+// @see https://github.com/julien-maurel/js-storage.
 import Storages from 'js-storage';
 import ScrollData from './scrollData';
+import './recipe';
 
 const storage = Storages.localStorage;
 
@@ -250,7 +255,6 @@ const isMobile = () => {
 }());
 
 (function chiliInstructionCheckboxes() {
-
   // Add in custom checkboxes.
   $('.instruction-checkbox').checkboxpicker({
     html: true,
