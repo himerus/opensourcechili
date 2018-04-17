@@ -120,27 +120,27 @@ const checkViewportSize = () => {
 
 const setViewportClass = (size) => {
   if (size.xs) {
-    $('body').removeClass('xs sm md lg xl xxl').addClass('xs');
+    $('body').removeClass('sm md lg xl xxl').addClass('xs');
   }
 
   if (size.sm) {
-    $('body').removeClass('xs sm md lg xl xxl').addClass('sm');
+    $('body').removeClass('xs md lg xl xxl').addClass('sm');
   }
 
   if (size.md) {
-    $('body').removeClass('xs sm md lg xl xxl').addClass('md');
+    $('body').removeClass('xs sm lg xl xxl').addClass('md');
   }
 
   if (size.lg) {
-    $('body').removeClass('xs sm md lg xl xxl').addClass('lg');
+    $('body').removeClass('xs sm md xl xxl').addClass('lg');
   }
 
   if (size.xl) {
-    $('body').removeClass('xs sm md lg xl xxl').addClass('xl');
+    $('body').removeClass('xs sm md lg xxl').addClass('xl');
   }
 
   if (size.xxl) {
-    $('body').removeClass('xs sm md lg xl xxl').addClass('xxl');
+    $('body').removeClass('xs sm md lg xl').addClass('xxl');
   }
 };
 
@@ -430,7 +430,9 @@ const batchHeatUpdate = (heat) => {
   // update stored value
   storage.set('batch-heat', heat);
 
-  $('.recipe-ingredients tbody tr').each(() => {
+  let $ingredientRows = $('.recipe-ingredients tbody tr');
+  // console.log($ingredientRows);
+  $ingredientRows.each(function alterIngredients() {
     if ($(this).hasClass(heatClass)) {
       $(this).slideDown('slow');
     }
@@ -440,6 +442,15 @@ const batchHeatUpdate = (heat) => {
   });
 };
 
+// /**
+//  * Makes buttons out of the heat selection headers.
+//  */
+// (function heatIngredientAdjust() {
+//   $(window).on('load ready', () => {
+//     const heat = $('input[name="output-heat"]').val();
+//     batchHeatUpdate(heat);
+//   });
+// }());
 /**
  * Handles updating the heat of the batch(es).
  */
@@ -460,6 +471,7 @@ const batchHeatUpdate = (heat) => {
     onSlideEnd: (position, value) => {
       $('a.batch-heat').removeClass('active');
       $(`a.batch-heat[data-heat="${value}"]`).addClass('active');
+      batchHeatUpdate(value);
     },
   });
 
