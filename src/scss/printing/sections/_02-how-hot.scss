@@ -2,5 +2,40 @@
   .heat-headers {
     display: flex;
     justify-content: space-between;
+
+    .batch-heat {
+      font-family: $font--serif;
+      box-shadow: $default-shadow;
+      font-size: 1.25rem;
+
+      @include media-breakpoint-up('lg') {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .btn {
+    opacity: 0.50;
+    transition: opacity 0.25s ease-in-out;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .btn,
+  .btn-success,
+  .btn-warning,
+  .btn-danger {
+    // stylelint-disable-next-line declaration-no-important
+    color: $white !important;
+    text-shadow: 1px 1px 3px rgba(150, 150, 150, 0.50);
+
+    &:hover,
+    &:focus {
+      // stylelint-disable-next-line declaration-no-important
+      color: $white !important;
+      opacity: 1;
+    }
   }
 }

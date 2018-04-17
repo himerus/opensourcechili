@@ -456,6 +456,11 @@ const batchHeatUpdate = (heat) => {
     onSlide: (position, value) => {
       batchHeatUpdate(value);
     },
+    // Callback function
+    onSlideEnd: (position, value) => {
+      $('a.batch-heat').removeClass('active');
+      $(`a.batch-heat[data-heat="${value}"]`).addClass('active');
+    },
   });
 
   $(window).on('load ready', () => {
@@ -470,6 +475,27 @@ const batchHeatUpdate = (heat) => {
     }
     batchHeatUpdate(value);
     $slider.rangeslider('update', true);
+  });
+}());
+
+/**
+ * Makes buttons out of the heat selection headers.
+ */
+(function heatButtonSelector() {
+  $('a.batch-heat').on('click', function changeHeat() {
+    const heat = $(this).attr('data-heat');
+    $(this).siblings('a').removeClass('active');
+    $(this).addClass('active');
+    const $heatInput = $('input[name="output-heat"]');
+    $heatInput.val(heat);
+    $heatInput.rangeslider('update', true);
+    return false;
+  });
+
+  // Assign an active class to the correct value to start off the page load.
+  $(window).on('load ready', () => {
+    const heat = $('input[name="output-heat"]').val();
+    $(`a.batch-heat[data-heat="${heat}"]`).addClass('active');
   });
 }());
 /* eslint-enable no-console */

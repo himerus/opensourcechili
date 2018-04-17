@@ -7,6 +7,10 @@
         width: 100%;
         text-align: left;
       }
+
+      .svg-inline--fa {
+        width: 1em;
+      }
     }
 
     @include media-breakpoint-up('sm') {

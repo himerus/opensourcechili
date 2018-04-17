@@ -53,13 +53,13 @@
           <a class="nav-link" href="#intro"><i class="fal fa-file-alt"></i>Intro</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#how-much"><i class="fal fa-tachometer"></i></i>How Much</a>
+          <a class="nav-link" href="#how-much"><i class="fal fa-tachometer"></i>How Much</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#how-hot"><i class="fal fa-fire"></i></i>How Hot</a>
+          <a class="nav-link" href="#how-hot"><i class="fal fa-fire"></i>How Hot</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#ingredients"><i class="fal fa-list"></i>Ingredients</a>
+          <a class="nav-link" href="#ingredients"><i class="fal fa-check"></i>Ingredients</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#instructions"><i class="fal fa-list"></i>Instructions</a>
@@ -85,10 +85,10 @@
           <p><span class="font-serif">Open Source Chili</span> is the ultimate recipe for a hearty chili that will have your family or guests clamoring for a second or even third helping. The following page will guide you through customizing the <a href="#how-much" class="font-serif">batch size</a> and <a href="#how-hot" class="font-serif">heat level</a>, show you the appropriate <a href="#ingredients" class="font-serif">ingredients</a>, and walk you through the process of <a href="#instructions" title="Instructions for making Open Source Chili" class="font-serif">making it</a> and optionally <a href="#canning" title="Canning chili" class="font-serif">canning it</a> for long term storage.</p>
           <hr class="my-3">
           <div class="section-navigation" aria-label="Navigation Buttons">
-            <a class="btn btn-lg btn-primary mt-1" href="#how-much" role="button">Customize Amount</a>
-            <a class="btn btn-lg btn-primary mt-1" href="#how-hot" role="button">Customize Heat</a>
-            <a class="btn btn-lg btn-primary mt-1" href="#ingredients" role="button">Ingredients</a>
-            <a class="btn btn-lg btn-primary mt-1" href="#instructions" role="button">Instructions</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#how-much" role="button"><i class="far fa-tachometer"></i>How Much</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#how-hot" role="button"><i class="far fa-fire"></i>How Hot</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#ingredients" role="button"><i class="far fa-check"></i>Ingredients</a>
+            <a class="btn btn-lg btn-primary mt-1" href="#instructions" role="button"><i class="far fa-list"></i>Instructions</a>
           </div>
       </div>
     </div>
@@ -131,12 +131,13 @@
           <hr class="my-3">
           <div id="output-heat" class="output-heat input">
             <div class="batch-heat">
-              <div class="heat-headers">
-                <h3 class="batch-heat mild">Mild</h3>
-                <h3 class="batch-heat medium">Medium</h3>
-                <h3 class="batch-heat hot">Hot</h3>
-              </div>
               <input type="range" name="output-heat" min="1" max="3" step="1" value="2" />
+              <div class="heat-headers">
+                <a href="#" class="batch-heat mild btn btn-success" data-heat="1">Mild</a>
+                <a href="#" class="batch-heat medium btn btn-warning" data-heat="2">Medium</a>
+                <a href="#" class="batch-heat hot btn btn-danger" data-heat="3">Hot</a>
+              </div>
+              <hr class="my-3">
               <p>The Medium version (default) will produce a good runny nose, and make you sweat a fair deal. The mild still has a decent kick to it, while the hot version will make your intestines bleed.</p>
             </div>
           </div>
