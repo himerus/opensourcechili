@@ -1,3 +1,10 @@
+/**
+ * @see https://developers.google.com/search/docs/data-types/recipe
+ * @see https://developers.google.com/search/docs/guides/intro-structured-data
+ * @see https://jsonld.com/recipe/
+ * @see https://search.google.com/structured-data/testing-tool/u/0/
+ * @see https://www.lullabot.com/articles/create-seo-juice-by-adding-json-ld-structured-data-to-drupal-8
+ */
 /* eslint-disable quote-props, comma-dangle */
 (function recipeJsonld() {
   const recipe = {
