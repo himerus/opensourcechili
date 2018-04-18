@@ -431,8 +431,17 @@ const batchHeatUpdate = (heat) => {
   storage.set('batch-heat', heat);
 
   let $ingredientRows = $('.recipe-ingredients tbody tr');
-  // console.log($ingredientRows);
   $ingredientRows.each(function alterIngredients() {
+    if ($(this).hasClass(heatClass)) {
+      $(this).slideDown('slow');
+    }
+    else {
+      $(this).slideUp('slow');
+    }
+  });
+
+  let $instructionCards = $('.instructions-card');
+  $instructionCards.each(function alterIngredients() {
     if ($(this).hasClass(heatClass)) {
       $(this).slideDown('slow');
     }
