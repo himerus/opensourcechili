@@ -558,6 +558,8 @@ const batchHeatUpdate = (heat) => {
     // Reset heat.
     const $heatInput = $('input[name="output-heat"]');
     $heatInput.val(2);
+    $('.heat-headers .batch-heat').removeClass('active');
+    $('.heat-headers .medium').addClass('active');
     $heatInput.rangeslider('update', true);
     return false;
   });
