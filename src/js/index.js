@@ -433,20 +433,20 @@ const batchHeatUpdate = (heat) => {
   const $ingredientRows = $('.recipe-ingredients tbody tr');
   $ingredientRows.each(function alterIngredients() {
     if ($(this).hasClass(heatClass)) {
-      $(this).slideDown('slow');
+      $(this).css('display', 'flex');
     }
     else {
-      $(this).slideUp('slow');
+      $(this).css('display', 'none');
     }
   });
 
   const $instructionCards = $('.instructions-card');
   $instructionCards.each(function alterIngredients() {
     if ($(this).hasClass(heatClass)) {
-      $(this).slideDown('slow');
+      $(this).css('display', 'flex');
     }
     else {
-      $(this).slideUp('slow');
+      $(this).css('display', 'none');
     }
   });
 
