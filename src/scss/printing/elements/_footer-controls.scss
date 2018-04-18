@@ -1,0 +1,74 @@
+.recipe-settings {
+  top: 15vh;
+  right: 0;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+
+  .cog-control {
+    font-size: 1.5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    opacity: 0.5;
+    transition: opacity 0.25s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .controls {
+    width: 0;
+    transition: width 0.35s ease-in-out;
+    border-bottom-left-radius: 0.3rem;
+  }
+
+  .btn-group-vertical {
+    display: flex;
+    padding: 1rem;
+
+    .btn {
+      align-self: stretch;
+      text-align: left;
+    }
+
+    .svg-inline--fa {
+      width: 1em;
+      margin-right: 0.5em;
+    }
+  }
+
+  .btn:focus,
+  .btn:active {
+    box-shadow: none;
+  }
+
+  &.active {
+    .cog-control {
+      opacity: 1;
+    }
+
+    .controls {
+      width: 200px;
+    }
+  }
+
+
+
+  .btn {
+    // opacity: 0.5;
+    transition: opacity 0.25s ease-in-out;
+
+    &:hover {
+      // opacity: 1;
+    }
+  }
+}

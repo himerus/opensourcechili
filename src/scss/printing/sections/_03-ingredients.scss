@@ -132,12 +132,13 @@
 
       .item-plural {
         display: none;
-
-        &.always-plural,
-        &.is-plural {
-          display: inline;
-        }
       }
+
+      .always-plural,
+      .is-plural {
+        display: inline;
+      }
+
       .item-desc {
         font-size: 0.75rem;
         font-family: $font--sans;

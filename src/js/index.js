@@ -430,7 +430,7 @@ const batchHeatUpdate = (heat) => {
   // update stored value
   storage.set('batch-heat', heat);
 
-  let $ingredientRows = $('.recipe-ingredients tbody tr');
+  const $ingredientRows = $('.recipe-ingredients tbody tr');
   $ingredientRows.each(function alterIngredients() {
     if ($(this).hasClass(heatClass)) {
       $(this).slideDown('slow');
@@ -440,7 +440,7 @@ const batchHeatUpdate = (heat) => {
     }
   });
 
-  let $instructionCards = $('.instructions-card');
+  const $instructionCards = $('.instructions-card');
   $instructionCards.each(function alterIngredients() {
     if ($(this).hasClass(heatClass)) {
       $(this).slideDown('slow');
@@ -517,6 +517,49 @@ const batchHeatUpdate = (heat) => {
   $(window).on('load ready', () => {
     const heat = $('input[name="output-heat"]').val();
     $(`a.batch-heat[data-heat="${heat}"]`).addClass('active');
+  });
+}());
+
+/**
+ * Creates controls.
+ */
+(function controlsToggle() {
+  $('a.cog-control').on('click', () => {
+    const settingsContainer = $('.recipe-settings');
+    if ($(settingsContainer).hasClass('active')) {
+      // Close the controls.
+      $(settingsContainer).removeClass('active');
+      $('a.cog-control').html('<i class="fal fa-cog"></i>').blur();
+    }
+    else {
+      // Open the controls.
+      $(settingsContainer).addClass('active');
+      $('a.cog-control').html('<i class="far fa-times"></i>');
+    }
+    return false;
+  });
+}());
+
+/**
+ * Reset recipe to defaults and uncheck all completed steps.
+ */
+(function resetRecipe() {
+  $('a.recipe-reset').on('click', () => {
+    // Remove all items from local storage.
+    storage.removeAll();
+    // Reset ingredients.
+    $('.ingredient-checkbox').prop('checked', false);
+    // Reset instructions.
+    $('.instruction-checkbox').prop('checked', false);
+    // Reset quantity.
+    const $sizeInput = $('input[name="output-size"]');
+    $sizeInput.val(1);
+    $sizeInput.rangeslider('update', true);
+    // Reset heat.
+    const $heatInput = $('input[name="output-heat"]');
+    $heatInput.val(2);
+    $heatInput.rangeslider('update', true);
+    return false;
   });
 }());
 /* eslint-enable no-console */
