@@ -4,8 +4,25 @@
 }
 
 .horizontal-section--instruction-sections {
+
+  .card-img-top {
+    // display: none;
+  }
+
   background: $c-chili--one;
-  padding: 15vh 0 10vh 0;
+
+  .instructions-card {
+    &:first-of-type {
+      margin-top: 20vh;
+    }
+    &:last-of-type {
+      margin-bottom: 15vh;
+    }
+  }
+
+  .card {
+    width: 100%;
+  }
 
   .btn-group {
     margin-right: 1em;

@@ -223,7 +223,7 @@ const isMobile = () => {
       offset: 0,
       scrollbars: true,
       standardScrollElements: '',
-      setHeights: false,
+      setHeights: true,
       overflowScroll: true,
       updateHash: false,
       touchScroll: false,
@@ -449,17 +449,10 @@ const batchHeatUpdate = (heat) => {
       $(this).slideUp('slow');
     }
   });
+
+  $.scrollify.update();
 };
 
-// /**
-//  * Makes buttons out of the heat selection headers.
-//  */
-// (function heatIngredientAdjust() {
-//   $(window).on('load ready', () => {
-//     const heat = $('input[name="output-heat"]').val();
-//     batchHeatUpdate(heat);
-//   });
-// }());
 /**
  * Handles updating the heat of the batch(es).
  */
@@ -473,10 +466,6 @@ const batchHeatUpdate = (heat) => {
     // the native <input type="range"> element.
     polyfill: false,
     // Callback function
-    onSlide: (position, value) => {
-      batchHeatUpdate(value);
-    },
-    // Callback function
     onSlideEnd: (position, value) => {
       $('a.batch-heat').removeClass('active');
       $(`a.batch-heat[data-heat="${value}"]`).addClass('active');
@@ -484,7 +473,7 @@ const batchHeatUpdate = (heat) => {
     },
   });
 
-  $(window).on('load ready', () => {
+  $(window).on('load', () => {
     const storedHeatLevel = storage.get('batch-heat');
     let value;
     if (storedHeatLevel) {
@@ -509,6 +498,7 @@ const batchHeatUpdate = (heat) => {
     $(this).addClass('active');
     const $heatInput = $('input[name="output-heat"]');
     $heatInput.val(heat);
+    batchHeatUpdate(heat);
     $heatInput.rangeslider('update', true);
     return false;
   });

@@ -1,0 +1,18 @@
+.horizontal-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 120rem;
+
+  .container,
+  .row,
+  .column {
+    min-height: 100vh;
+  }
+
+  .column {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
