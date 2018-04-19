@@ -25,22 +25,14 @@
   }
 
   .navbar-brand {
-
     @include media-breakpoint-only('xs') {
       font-size: 1.5em;
-
-      img {
-        margin-right: 0;
-      }
     }
-
     color: $gray-100;
     font-size: 2em;
     font-family: $font--header;
 
-    img {
-      margin-right: 1em;
-    }
+
   }
 
   .navbar-toggler {
